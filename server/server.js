@@ -1,3 +1,4 @@
+require("dotenv").config(); //npm i dotenv --save to hide api key
 const express = require("express");
 const app = express();
 
@@ -9,3 +10,5 @@ app.get("/api", (req, res) => {
 app.listen(5000, () => {
   console.log("Server started on port 5000");
 });
+
+//npm run dev to start nodemon on port 5000
