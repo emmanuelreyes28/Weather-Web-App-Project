@@ -7,7 +7,7 @@ app.get("/api", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "userThree", "userFour"] });
 });
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   const query = "Los Angeles";
   const apiKey = process.env.APIKEY;
   const unit = "imperial";
@@ -19,6 +19,11 @@ app.get("/", (req, res) => {
     "&units=" +
     unit;
 
+  const response = await fetch(url).then((res) => res.json());
+
+  res.json(response);
+
+  //https.request(url);
   //print response status code
   // https.get(url, function (response) {
   //   console.log(response.statusCode);
