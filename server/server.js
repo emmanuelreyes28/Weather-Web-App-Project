@@ -7,7 +7,7 @@ app.get("/api", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "userThree", "userFour"] });
 });
 
-app.get("/", async (req, res) => {
+app.get("/test", async (req, res) => {
   const query = "Los Angeles";
   const apiKey = process.env.APIKEY;
   const unit = "imperial";
@@ -19,21 +19,19 @@ app.get("/", async (req, res) => {
     "&units=" +
     unit;
 
-  const response = await fetch(url).then((res) => res.json());
-
-  res.json(response);
-
-  //https.request(url);
   //print response status code
-  // https.get(url, function (response) {
-  //   console.log(response.statusCode);
+  https.get(url, function (response) {
+    console.log(response.statusCode);
 
-  //   response.on("data", function (data) {
-  //     const weatherData = JSON.parse(data);
-  //     console.log(weatherData);
-  //     res.json(weatherData); //need to send json object over to react with fetch
-  //   });
-  // });
+    response.on("data", function (data) {
+      const weatherData = JSON.parse(data);
+      console.log(weatherData);
+      res.json(weatherData);
+      // const name = weatherData.name;
+      // const temp = weatherData.main.temp;
+      // res.json({ temperature: temp, city: name }); //need to send json object over to react with fetch
+    });
+  });
 });
 
 //server will use port 5000 bc react uses port 3000 by default
