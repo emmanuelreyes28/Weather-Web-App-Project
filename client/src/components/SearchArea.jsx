@@ -1,21 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function SearchArea(props) {
-  //usState object to store city name and temp
+  //usState object to store city name
   const [city, setCity] = useState("");
-
-  //   useEffect(() => {
-  //     fetch(
-  //       "https://api.openweathermap.org/data/2.5/weather?q=" +
-  //         city +
-  //         "&appid=" +
-  //         "e0510037a8dda7f1b676abfb08e30234" +
-  //         "&units=" +
-  //         "imperial"
-  //     )
-  //       .then((response) => response.json())
-  //       .then((json) => setWeatherInfo(json));
-  //   }, [city]);
 
   function handleChange(event) {
     const cityName = event.target.value;
