@@ -1,10 +1,10 @@
 import React from "react";
 
-function CityWeather() {
+function CityWeather(props) {
   return (
     <div>
-      <p>Name of City</p>
-      <p>Temperature in Faranheit</p>
+      <p>Name of City: {props.city}</p>
+      <p>Temperature in Faranheit: {props.temp}</p>
     </div>
   );
 }
